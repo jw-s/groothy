@@ -1,4 +1,4 @@
-group 'com.joel'
+group 'com.joelws'
 version '1.0'
 
 buildscript {
