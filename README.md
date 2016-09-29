@@ -2,7 +2,8 @@ Kotlin implementation of [Groovy Truth](http://groovy-lang.org/semantics.html#Gr
 
 #Example
 
-```if(truthy("")) //false  
+```
+if(truthy("")) //false  
    if(truthy(" ")) //false  
    if(truthy("hello, world")) //true 
 ```
