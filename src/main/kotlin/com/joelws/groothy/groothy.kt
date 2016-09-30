@@ -20,18 +20,15 @@ limitations under the License.
 */
 
 fun groothy(subject: CharSequence?): Boolean {
-    return if (subject.isNullOrBlank()) false else true
+    return !subject.isNullOrBlank()
 }
 
 fun groothy(subject: Number?): Boolean {
-    return when (subject) {
-        null, 0 -> false
-        else -> true
-    }
+    return !(subject == null || subject == 0)
 }
 
 fun groothy(subject: Any?): Boolean {
-    return if (subject == null) false else true
+    return subject != null
 }
 
 @Suppress("UNUSED_PARAMETER") fun groothy(subject: Nothing?): Boolean {
@@ -39,43 +36,25 @@ fun groothy(subject: Any?): Boolean {
 }
 
 fun <E> groothy(subject: Collection<E>?): Boolean {
-    return when {
-        subject == null || subject.isEmpty() -> false
-        else -> true
-    }
+    return !(subject == null || subject.isEmpty())
 }
 
 fun <T> groothy(subject: Array<T>?): Boolean {
-    return when {
-        subject == null || subject.isEmpty() -> false
-        else -> true
-    }
+    return !(subject == null || subject.isEmpty())
 }
 
 fun <K, V> groothy(subject: Map<K, V>?): Boolean {
-    return when {
-        subject == null || subject.isEmpty() -> false
-        else -> true
-    }
+    return !(subject == null || subject.isEmpty())
 }
 
 fun groothy(subject: Matcher?): Boolean {
-    return when {
-        subject == null || !subject.find() -> false
-        else -> true
-    }
+    return !(subject == null || !subject.find())
 }
 
 fun <T> groothy(subject: Iterator<T>?): Boolean {
-    return when {
-        subject == null || !subject.hasNext() -> false
-        else -> true
-    }
+    return !(subject == null || !subject.hasNext())
 }
 
 fun <T> groothy(subject: Enumeration<T>?): Boolean {
-    return when {
-        subject == null || !subject.hasMoreElements() -> false
-        else -> true
-    }
+    return !(subject == null || !subject.hasMoreElements())
 }

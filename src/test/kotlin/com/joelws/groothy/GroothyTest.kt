@@ -26,162 +26,149 @@ import kotlin.test.assertTrue
 class GroothyTest {
 
     @Test fun testStringFalsey() {
-        val subject = ""
 
-        assertFalse(groothy(subject))
+        assertFalse("".isTrue())
 
         val subjectNull: String? = null
 
-        assertFalse(groothy(subjectNull))
+        assertFalse(subjectNull.isTrue())
     }
 
     @Test fun testStringTruthy() {
-        val subject: String? = "a String"
-        assertTrue(groothy(subject))
+        assertTrue("a String".isTrue())
     }
 
 
     @Test fun testNumberFalsey() {
-        val subject = 0
 
-        assertFalse(groothy(subject))
+        assertFalse(0.isTrue())
 
         val subjectNull: Int? = null
 
-        assertFalse(groothy(subjectNull))
+        assertFalse(subjectNull.isTrue())
 
     }
 
     @Test fun testNumberTruthy() {
-        val subject = 1
 
-        assertTrue(groothy(subject))
+        assertTrue(1.isTrue())
 
     }
 
     @Test fun testObjectTruthy() {
-        val subject = Any()
 
-        assertTrue(groothy(subject))
+        assertTrue(Any().isTrue())
 
     }
 
     @Test fun testObjectFalsey() {
         val subject: Any? = null
 
-        assertFalse(groothy(subject))
+        assertFalse(subject.isTrue())
 
     }
 
     @Test fun testCollectionTruthy() {
-        val subject = listOf("")
 
-        assertTrue(groothy(subject))
+        assertTrue(listOf("").isTrue())
 
     }
 
     @Test fun testCollectionFalsey() {
-        val subject = emptyList<String>()
-
-        assertFalse(groothy(subject))
+        assertFalse(emptyList<String>().isTrue())
 
         val subjectNull: List<String>? = null
 
-        assertFalse(groothy(subjectNull))
+        assertFalse(subjectNull.isTrue())
 
     }
 
     @Test fun testMutableCollectionTruthy() {
-        val subject = mutableListOf("")
 
-        assertTrue(groothy(subject))
+        assertTrue(mutableListOf("").isTrue())
 
     }
 
     @Test fun testArrayTruthy() {
-        val subject = arrayOf("")
 
-        assertTrue(groothy(subject))
+        assertTrue(arrayOf("").isTrue())
     }
 
     @Test fun testArrayFalsey() {
-        val subject = emptyArray<Int>()
 
-        assertFalse(groothy(subject))
+        assertFalse(emptyArray<Int>().isTrue())
 
         val subjectNull: Array<Int>? = null
 
-        assertFalse(groothy(subjectNull))
+        assertFalse(subjectNull.isTrue())
     }
 
     @Test fun testMapTruthy() {
-        val subject = mapOf(5 to "five")
 
-        assertTrue(groothy(subject))
+        assertTrue(mapOf(5 to "five").isTrue())
     }
 
     @Test fun testMapFalsey() {
-        val subject = emptyMap<Int, String?>()
 
-        assertFalse(groothy(subject))
+        assertFalse(emptyMap<Int, String?>().isTrue())
 
         val subjectNull: Map<Int, String?>? = null
 
-        assertFalse(groothy(subjectNull))
+        assertFalse(subjectNull.isTrue())
     }
 
     @Test fun testMatcherTruthy() {
         val pattern = Pattern.compile("[A-Z]")
 
-        val subject = pattern.matcher("AB")
-
-        assertTrue(groothy(subject))
+        assertTrue(pattern.matcher("AB").isTrue())
     }
 
     @Test fun testMatcherFalsey() {
         val pattern = Pattern.compile("[A-Z]")
 
-        val subject = pattern.matcher("ab")
 
-        assertFalse(groothy(subject))
+        assertFalse(pattern.matcher("ab").isTrue())
 
         val subjectNull: Matcher? = null
 
-        assertFalse(groothy(subjectNull))
+        assertFalse(subjectNull.isTrue())
 
     }
 
     @Test fun testIteratorTruthy() {
-        val subject = listOf("").iterator()
 
-        assertTrue(groothy(subject))
+        assertTrue(listOf("").iterator().isTrue())
     }
 
     @Test fun testIteratorFalsey() {
-        val subject = emptyList<String>().iterator()
 
-        assertFalse(groothy(subject))
+        assertFalse(emptyList<String>().iterator().isTrue())
 
         val subjectNull: Matcher? = null
 
-        assertFalse(groothy(subjectNull))
+        assertFalse(subjectNull.isTrue())
 
     }
 
     @Test fun testEnumerationTruthy() {
-        val subject = Vector(listOf(0)).elements()
-        assertTrue(groothy(subject))
+        assertTrue(Vector(listOf(0)).elements().isTrue())
     }
 
     @Test fun testEnumerationFalsey() {
         val subject = Vector(listOf(0)).elements()
-        assertTrue(groothy(subject))
+        assertTrue(subject.isTrue())
 
         subject.nextElement()
-        assertFalse(groothy(subject))
+        assertFalse(subject.isTrue())
 
         val subjectNull: Enumeration<Int>? = null
-        assertFalse(groothy(subjectNull))
+        assertFalse(subjectNull.isTrue())
+
+    }
+
+    @Test fun testNothingTruthy() {
+        val subject: Nothing? = null
+        assertFalse(subject.isTrue())
 
     }
 
