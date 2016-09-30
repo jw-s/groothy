@@ -19,42 +19,42 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-fun groothy(subject: CharSequence?): Boolean {
-    return !subject.isNullOrBlank()
+fun CharSequence?.isTrue(): Boolean {
+    return !this.isNullOrBlank()
 }
 
-fun groothy(subject: Number?): Boolean {
-    return !(subject == null || subject == 0)
+fun Number?.isTrue(): Boolean {
+    return !(this == null || this == 0)
 }
 
-fun groothy(subject: Any?): Boolean {
-    return subject != null
+fun Any?.isTrue(): Boolean {
+    return this != null
 }
 
-@Suppress("UNUSED_PARAMETER") fun groothy(subject: Nothing?): Boolean {
+fun Nothing?.isTrue(): Boolean {
     return false
 }
 
-fun <E> groothy(subject: Collection<E>?): Boolean {
-    return !(subject == null || subject.isEmpty())
+fun <E> Collection<E>?.isTrue(): Boolean {
+    return !(this == null || this.isEmpty())
 }
 
-fun <T> groothy(subject: Array<T>?): Boolean {
-    return !(subject == null || subject.isEmpty())
+fun <T> Array<T>?.isTrue(): Boolean {
+    return !(this == null || this.isEmpty())
 }
 
-fun <K, V> groothy(subject: Map<K, V>?): Boolean {
-    return !(subject == null || subject.isEmpty())
+fun <K, V> Map<K, V>?.isTrue(): Boolean {
+    return !(this == null || this.isEmpty())
 }
 
-fun groothy(subject: Matcher?): Boolean {
-    return !(subject == null || !subject.find())
+fun Matcher?.isTrue(): Boolean {
+    return !(this == null || !this.find())
 }
 
-fun <T> groothy(subject: Iterator<T>?): Boolean {
-    return !(subject == null || !subject.hasNext())
+fun <T> Iterator<T>?.isTrue(): Boolean {
+    return !(this == null || !this.hasNext())
 }
 
-fun <T> groothy(subject: Enumeration<T>?): Boolean {
-    return !(subject == null || !subject.hasMoreElements())
+fun <T> Enumeration<T>?.isTrue(): Boolean {
+    return !(this == null || !this.hasMoreElements())
 }
