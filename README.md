@@ -3,7 +3,33 @@ Kotlin implementation of [Groovy Truth](http://groovy-lang.org/semantics.html#Gr
 #Example
 
 ```
-if(truthy("")) //false  
-if(truthy(" ")) //false  
-if(truthy("hello, world")) //true 
+if(groothy("")) //false  
+if(groothy(" ")) //false  
+if(groothy("hello, world")) //true 
 ```
+
+## Maven
+
+You must configure your ```pom.xml``` file using JCenter repository
+
+```xml  
+<repository>
+    <id>central</id>
+    <name>bintray</name>
+    <url>http://jcenter.bintray.com</url>
+</repository>
+```
+
+```xml
+<dependency>
+  <groupId>com.joelws</groupId>
+  <artifactId>groothy</artifactId>
+  <version>1.0</version>
+</dependency>
+```
+
+## Gradle
+```repositories {
+        jcenter()
+    }```
+```compile 'com.joelws:groothy:1.0'```
