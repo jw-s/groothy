@@ -24,7 +24,7 @@ You must configure your ```pom.xml``` file using JCenter repository
 <dependency>
   <groupId>com.joelws</groupId>
   <artifactId>groothy</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
 </dependency>
 ```
 
@@ -32,4 +32,4 @@ You must configure your ```pom.xml``` file using JCenter repository
 ```repositories {
         jcenter()
     }```
-```compile 'com.joelws:groothy:1.0'```
+```compile 'com.joelws:groothy:1.1'```
