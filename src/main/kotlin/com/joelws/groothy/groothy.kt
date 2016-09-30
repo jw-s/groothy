@@ -19,63 +19,42 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-fun groothy(subject: CharSequence?): Boolean {
-    return if (subject.isNullOrBlank()) false else true
+fun CharSequence?.isTrue(): Boolean {
+    return !this.isNullOrBlank()
 }
 
-fun groothy(subject: Number?): Boolean {
-    return when (subject) {
-        null, 0 -> false
-        else -> true
-    }
+fun Number?.isTrue(): Boolean {
+    return !(this == null || this == 0)
 }
 
-fun groothy(subject: Any?): Boolean {
-    return if (subject == null) false else true
+fun Any?.isTrue(): Boolean {
+    return this != null
 }
 
-@Suppress("UNUSED_PARAMETER") fun groothy(subject: Nothing?): Boolean {
+fun Nothing?.isTrue(): Boolean {
     return false
 }
 
-fun <E> groothy(subject: Collection<E>?): Boolean {
-    return when {
-        subject == null || subject.isEmpty() -> false
-        else -> true
-    }
+fun <E> Collection<E>?.isTrue(): Boolean {
+    return !(this == null || this.isEmpty())
 }
 
-fun <T> groothy(subject: Array<T>?): Boolean {
-    return when {
-        subject == null || subject.isEmpty() -> false
-        else -> true
-    }
+fun <T> Array<T>?.isTrue(): Boolean {
+    return !(this == null || this.isEmpty())
 }
 
-fun <K, V> groothy(subject: Map<K, V>?): Boolean {
-    return when {
-        subject == null || subject.isEmpty() -> false
-        else -> true
-    }
+fun <K, V> Map<K, V>?.isTrue(): Boolean {
+    return !(this == null || this.isEmpty())
 }
 
-fun groothy(subject: Matcher?): Boolean {
-    return when {
-        subject == null || !subject.find() -> false
-        else -> true
-    }
+fun Matcher?.isTrue(): Boolean {
+    return !(this == null || !this.find())
 }
 
-fun <T> groothy(subject: Iterator<T>?): Boolean {
-    return when {
-        subject == null || !subject.hasNext() -> false
-        else -> true
-    }
+fun <T> Iterator<T>?.isTrue(): Boolean {
+    return !(this == null || !this.hasNext())
 }
 
-fun <T> groothy(subject: Enumeration<T>?): Boolean {
-    return when {
-        subject == null || !subject.hasMoreElements() -> false
-        else -> true
-    }
+fun <T> Enumeration<T>?.isTrue(): Boolean {
+    return !(this == null || !this.hasMoreElements())
 }

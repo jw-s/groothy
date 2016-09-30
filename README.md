@@ -3,9 +3,9 @@ Kotlin implementation of [Groovy Truth](http://groovy-lang.org/semantics.html#Gr
 #Example
 
 ```
-if(groothy("")) //false  
-if(groothy(" ")) //false  
-if(groothy("hello, world")) //true 
+if("".isTrue()) //false  
+if(" ".isTrue()) //false  
+if("hello, world".isTrue()) //true 
 ```
 
 ## Maven
