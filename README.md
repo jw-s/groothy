@@ -29,7 +29,9 @@ You must configure your ```pom.xml``` file using JCenter repository
 ```
 
 ## Gradle
-```repositories {
+```
+    repositories {
         jcenter()
-    }```
+    }
+```
 ```compile 'com.joelws:groothy:1.1'```
